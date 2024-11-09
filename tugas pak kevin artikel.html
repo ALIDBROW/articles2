@@ -1,0 +1,172 @@
+<html>
+
+<head>
+    <title>
+        Walid Azhar Djamil
+    </title>
+    <script src="https://cdn.tailwindcss.com">
+    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet" />
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-900 text-white">
+    <div class="container mx-auto p-4">
+        <header class="flex justify-between items-center mb-8">
+            <div class="flex items-center">
+                <img alt="Logo" class="mr-4" height="50" src="download.png" width="50" />
+                <h1 class="text-3xl font-bold">
+                    Walid Azhar Djamil Blog
+                </h1>
+            </div>
+            <nav>
+                <a class="text-gray-300 hover:text-white" href="#">
+                    Home
+                </a>
+            </nav>
+        </header>
+        <main class="flex">
+            <section class="w-2/3 pr-8">
+                <h2 class="text-xl font-bold mb-4">
+                    Recent Posts :
+                </h2>
+                <article class="mb-8 article-content" data-index="0">
+                    <h3 class="text-2xl font-bold mb-2">
+                        Berita terbaru tentang lebron james
+                    </h3>
+                    <img src="images lebron 1.jpeg" height="" width="150" alt="">
+                    <p class="text-gray-400 mb-4">
+                        LeBron James haus akan rekor. Faktor umur juga tidak berlaku bagi Sang Raja. Kali ini LeBron
+                        mengincar rekor sebagai pemain tertua yang bermain penuh dalam satu musim dengan jumlah 82
+                        pertandingan.
+
+
+                        Dalam wawancara dengan New York Times, LeBron tidak ingin melewatkan satu gim pun dalam musim
+                        reguler 2024-2025. “Ya, saya berencana bermain di setiap pertandingan. Kita lihat saja apa yang
+                        terjadi. Kita tidak pernah tahu. Kita lihat apa yang terjadi nanti,” ujarnya.
+                    </p>
+                </article>
+                <article class="mb-8 article-content hidden" data-index="1">
+                    <h3 class="text-2xl font-bold mb-2">
+                        Perjalanan Karir LeBron James
+                    </h3>
+                    <img src="images lebron (2).jpeg" height="" width="150" alt="">
+                    <p class="text-gray-400 mb-4">
+                        Memulai karirnya di Cleveland Cavaliers, LeBron James telah menjadi salah satu pemain basket
+                        terhebat sepanjang masa.
+                        Dengan empat gelar NBA Championship bersama tiga tim berbeda, James telah membuktikan dirinya
+                        sebagai pemain yang luar biasa
+                    </p>
+                </article>
+                <article class="mb-8 article-content hidden" data-index="2">
+                    <h3 class="text-2xl font-bold mb-2">
+                        LeBron dan Lakers Musim Ini
+                    </h3>
+                    <img src="download lebron(4).jpeg" height="" width="150" alt="">
+                    <p class="text-gray-400 mb-4">
+                        Bersama Los Angeles Lakers, LeBron James terus menunjukkan konsistensi bermain di level tinggi.
+                        Di usianya yang hampir menginjak 40 tahun, ia masih menjadi pemain kunci tim
+                    </p>
+
+                </article>
+
+                <!-- ini adalah untuk button -->
+                <div class="flex justify-between mt-6">
+                    <button onclick="navigateArticles('prev')"
+                        class="bg-gray-700 hover:bg-gray-900 font-bold text-white py-2 px-6 rounded">
+                        Previous
+                    </button>
+                    <div>
+                        article <span id="indexSekarang">1</span> dari <span id="artikelTotal">3</span>
+                    </div>
+                    <button onclick="navigateArticles('next')"
+                        class="bg-gray-700 hover:bg-gray-900 font-bold text-white py-2 px-6 rounded">
+                        Next
+                    </button>
+                </div>
+            </section>
+
+            <aside class="w-full md:w-1/3 mt-8 md:mt-0">
+                <div class="bg-gray-600 p-4 rounded-lg text-center">
+                    <img class="rounded-full mx-auto mb-4" height="120" width="120" src="images.jpeg"
+                        alt="ini adalah gambar lebron james">
+                    <h3 class="text-xl font-bold">Lebron James</h3>
+                    <p class="text-gray-300 ">LeBron Raymone James Sr.lahir 30 Desember 1984 adalah seorang pemain
+                        basket profesional Amerika untuk Los Angeles Lakers dari National Basketball Association (NBA).
+                    </p>
+                </div>
+            </aside>
+        </main>
+
+        <footer class="mt-8 flex justify-center space-x-6">
+            <button class="text-white px-6 py-4 rounded">
+                <a class="flex items-center"
+                    href="https://www.mainbasket.com/r/19041/lebron-james-ingin-tampil-penuh-dalam-82-gim-di-musim-ini"><img
+                        class="ml-2" width="100" src="application.png" alt="ini adalah image"></a>
+
+            </button>
+            <button class="text-white px-6 py-4 rounded">
+                <a class="flex items-center" href="https://www.instagram.com/kingjames/"><img class="ml-2" width="100"
+                        src="instagram.png" alt="ini adalah image"></a>
+
+            </button>
+        </footer>
+    </div>
+
+    <script>
+        let artikelIndexSekarang = 0;
+        const artikel = document.querySelectorAll('.article-content');
+        const artikelTotal = artikel.length;
+
+        function navigateArticles(arah) {
+            artikel[artikelIndexSekarang].classList.add('hidden');
+
+            if (arah === 'next') {
+                artikelIndexSekarang = (artikelIndexSekarang + 1) % artikelTotal
+            } else {
+                artikelIndexSekarang = (artikelIndexSekarang - 1 + artikelTotal) % artikelTotal
+            }
+
+            artikel[artikelIndexSekarang].classList.remove('hidden');
+
+            document.getElementById('indexSekarang').textContent = artikelIndexSekarang + 1;
+            document.getElementById('artikelTotal').textContent = artikelTotal;
+        }
+
+        function navigasiOtomatis() {
+            intervalId = setInterval(() => {
+                navigateArticles('next');
+            }, 2000);
+        }
+
+        function navigasiBerhenti() {
+            clearInterval(intervalId);
+        }
+
+        window.addEventListener('load', navigasiOtomatis);
+
+        document.querySelector('button[onclick="navigateArticles(\'prev\')"]')
+            .addEventListener('click', () => {
+                navigasiBerhenti();
+                navigateArticles('prev');
+                navigasiOtomatis();
+            });
+
+        document.querySelector('button[onclick="navigateArticles(\'next\')"]')
+            .addEventListener('click', () => {
+                navigasiBerhenti();
+                navigateArticles('next');
+                navigasiOtomatis();
+            });
+
+        document.getElementById('indexSekarang').textContent = '1';
+    </script>
+     
+</body>
+
+</html>
